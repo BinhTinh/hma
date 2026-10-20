@@ -1,0 +1,145 @@
+{
+  "stage": "4B",
+  "driver": "run_tests_4b_fixed.py",
+  "driver_sha256": "c33021ad8640d91e730ac7fa9a09177f61c6a0d044984d563db9020fa91a595a",
+  "tests_run": 386,
+  "all_passed": true,
+  "groups": [
+    {
+      "pattern": "test_runtime_binding.py",
+      "tests_run": 14,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_runner_binding_metadata.py",
+      "tests_run": 11,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_runner_profile_main.py",
+      "tests_run": 16,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_stage4.py",
+      "tests_run": 20,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_stage7a.py",
+      "tests_run": 16,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_runtime_lock.py",
+      "tests_run": 10,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_profile_selector.py",
+      "tests_run": 26,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_profile_cli.py",
+      "tests_run": 11,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_memory_note_facts.py",
+      "tests_run": 8,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_memory_model_harness.py",
+      "tests_run": 21,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_memory_episode.py",
+      "tests_run": 9,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_memory_prompt.py",
+      "tests_run": 18,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_prompt_rules.py",
+      "tests_run": 4,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_memory_tools.py",
+      "tests_run": 34,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_memory_runner.py",
+      "tests_run": 6,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_memory_store.py",
+      "tests_run": 28,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_memory_schema.py",
+      "tests_run": 14,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_memory_integration.py",
+      "tests_run": 9,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_stage0.py",
+      "tests_run": 35,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_stage2b.py",
+      "tests_run": 24,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_stage2a.py",
+      "tests_run": 36,
+      "count_matches": true,
+      "successful": true
+    },
+    {
+      "pattern": "test_stage3_loop.py",
+      "tests_run": 16,
+      "count_matches": true,
+      "successful": true
+    }
+  ],
+  "common_prompt_and_original_model_evidence_unchanged": true,
+  "api_calls_in_this_step": 0,
+  "profile_policy_stage": "binding_only_pending_4C",
+  "verified_at_utc": "2026-10-17T05:46:58.495380+00:00"
+}

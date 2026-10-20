@@ -1,0 +1,39 @@
+llm:
+  base_url: http://llm.corp.test:8080
+  api_key: FAKE-KEY            # khóa giả; khóa thật nằm ở gateway pfSense
+  model: deepseek-flash
+  thinking: true
+  request_timeout_s: 180
+
+mail:
+  host: mail.corp.test
+  imap_port: 143
+  smtp_port: 587
+  user: support@corp.test
+  ca_file: certs/ca.crt
+  password_env: HMA_MAIL_PASSWORD   # mật khẩu lấy từ biến môi trường, không ghi vào file
+
+agent:
+  max_steps: 8
+  episode_timeout_s: 120
+  episode_token_cap: 60000
+  body_limit_chars: 6000
+  kb_top_k: 3
+  max_run_messages: 100
+  max_replies_per_recipient_per_day: 20
+
+sender_classes:                 # domain người gửi -> loại nguồn
+  customer.test: client
+  partner.test: partner
+
+handoff:                        # loại nguồn -> quản trị nhận chuyển tiếp
+  client: alice@corp.test
+  partner: bob@corp.test
+
+kb:
+  always_load: [KB-015, KB-018]
+
+paths:
+  db: data/agent.db
+  kb_dir: data/kb
+  log_dir: logs

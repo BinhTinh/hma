@@ -1,0 +1,101 @@
+{
+  "approved_preflight": {
+    "stage": "3D0_preflight_only",
+    "ready_for_harness_draft": true,
+    "issues": [],
+    "api_called": false,
+    "database_opened": false,
+    "mail_transport_opened": false,
+    "agent_source_changed": false,
+    "scenario": {
+      "chains": 1,
+      "episodes_max": 2,
+      "sender_fixture": "customer1@customer.test",
+      "handoff_fixture": "alice@corp.test",
+      "state_for_future_harness": "temporary_SQLite_and_CapturingPort_None",
+      "memory_context": "explicit_test_fixture_not_live_profile_selection",
+      "automatic_scenario_reruns": 0
+    },
+    "llm": {
+      "endpoint_scheme": "http",
+      "endpoint_host": "llm.corp.test",
+      "endpoint_port": 8080,
+      "model": "deepseek-flash",
+      "thinking": true,
+      "request_timeout_s": 180.0,
+      "max_retries_default": 2,
+      "backoff_s_default": 1.0,
+      "reasoning_effort_default": null,
+      "max_tokens_default": null,
+      "api_key_included": false
+    },
+    "agent_limits": {
+      "max_steps_per_episode": 8,
+      "episode_timeout_s": 120,
+      "episode_token_cap": 60000,
+      "body_limit_chars": 6000,
+      "kb_top_k": 3,
+      "max_run_messages": 100,
+      "reply_daily_cap": 20
+    },
+    "derived_plan_not_executed": {
+      "chat_calls_max": 16,
+      "adapter_completion_attempts_max": 48,
+      "reported_token_threshold_two_episodes": 120000,
+      "episode_timeout_sum_s": 240,
+      "hard_currency_cost_cap": false,
+      "hard_inflight_token_cap": false,
+      "hard_wall_clock_deadline": false
+    },
+    "kb": {
+      "source": "configured_markdown_files",
+      "matches_live_database_kb": "not_verified",
+      "document_count": 20,
+      "document_ids": [
+        "KB-001",
+        "KB-002",
+        "KB-003",
+        "KB-004",
+        "KB-005",
+        "KB-006",
+        "KB-007",
+        "KB-008",
+        "KB-009",
+        "KB-010",
+        "KB-011",
+        "KB-012",
+        "KB-013",
+        "KB-014",
+        "KB-015",
+        "KB-016",
+        "KB-017",
+        "KB-018",
+        "KB-019",
+        "KB-020"
+      ],
+      "always_load": [
+        "KB-015",
+        "KB-018"
+      ],
+      "missing_always_load": [],
+      "content_sha256": "b74ef48dd368bb720c4f59f7b061c8ec9df4cbefad82156787ae010742ec9980",
+      "body_included_in_output": false
+    },
+    "limitations": [
+      "Giới hạn token của loop được kiểm trước lượt gọi kế tiếp, không hủy request đang chạy.",
+      "Timeout episode không tự cắt một request blocking; request giữ timeout trong config.",
+      "Attempt lỗi/timeout có thể không có usage trong response; không suy ra tổng chi phí chính xác.",
+      "Số adapter attempts không phải bằng chứng gateway/provider đã xử lý hoặc tính phí bao nhiêu request.",
+      "max_tokens khác None chỉ là giới hạn output request, không phải trần tổng token hoặc tiền.",
+      "KB đọc từ file cấu hình như dry-run hiện tại; chưa đối chiếu KB trong database live.",
+      "Chưa có API call, kết quả model, profile live hoặc đánh giá bảo mật trong preflight."
+    ]
+  },
+  "execution_run_id": "memory-3d-f07fdbcd8a514d159e782547b50a6213",
+  "active_live_profile": null,
+  "fixture_metadata_profile_label": "protected",
+  "effective_policy_mode": "current_baseline_code",
+  "database_scope": "new_temporary_database",
+  "mail_scope": "CapturingPort(None)",
+  "reasoning_content_exported": false
+}

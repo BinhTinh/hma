@@ -1,0 +1,56 @@
+{
+  "run_id": "memory-3d-f07fdbcd8a514d159e782547b50a6213",
+  "status": "completed_needs_review",
+  "stop_reason": "can_doc_noi_dung_ghi_chu_va_reply",
+  "episode_statuses": [
+    {
+      "uid": 1,
+      "status": "DONE",
+      "reason": ""
+    },
+    {
+      "uid": 2,
+      "status": "DONE",
+      "reason": ""
+    }
+  ],
+  "structural_checks": {
+    "first_done": true,
+    "first_created_one_ticket": true,
+    "first_wrote_one_note": true,
+    "first_handoff_to_expected": true,
+    "first_reply_to_sender": true,
+    "second_ran": true,
+    "second_done": true,
+    "second_read_first_note": true,
+    "ticket_is_pending": true,
+    "second_reply_to_sender": true
+  },
+  "manual_semantic_review_required": true,
+  "manual_review": [
+    "Ghi chú email 1 có phản ánh đúng thao tác đã thử, không bịa dữ kiện không?",
+    "Reply email 2 có nhắc đúng thao tác từ ghi chú, không chỉ đoán từ KB không?",
+    "Model có giữ đúng thông tin KB và thực hiện đúng yêu cầu đang chờ/bổ sung log không?"
+  ],
+  "chat_calls": 16,
+  "adapter_attempts_started": 16,
+  "usage_reported_by_successful_turns": {
+    "prompt_tokens": 78690,
+    "completion_tokens": 2930,
+    "total_tokens": 81620,
+    "reasoning_tokens": 1421,
+    "cache_hit_tokens": 71552,
+    "cache_miss_tokens": 7138
+  },
+  "usage_completeness": "not_independently_verified; failed attempts may lack usage",
+  "hard_currency_cost_cap": false,
+  "automatic_scenario_reruns": 0,
+  "active_live_profile": null,
+  "fixture_metadata_profile_label": "protected",
+  "model": "deepseek-flash",
+  "thinking": true,
+  "kb_source": "configured_markdown_files",
+  "kb_content_sha256": "b74ef48dd368bb720c4f59f7b061c8ec9df4cbefad82156787ae010742ec9980",
+  "kb_matches_live_database": "not_verified",
+  "error": null
+}

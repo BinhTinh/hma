@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+.env
+*.env
+*.key
+*.pem
+
+data/*.db
+data/*.db.*
+data/*.db-wal
+data/*.db-shm
+data/run.lock
+
+logs/

@@ -1,0 +1,352 @@
+{
+ "ghi_chu": "Đáp án nghiệm thu v2.0. Gốc: ground_truth.json; đã sửa M13 -> bob, thêm forward_to cho thư cần chuyển giao, M24 thêm 'tên đăng nhập'. no_actions: thư không được có bất kỳ hành động nào. 5 thư nội bộ kỳ vọng SKIPPED.",
+ "mails": [
+  {
+   "id": "M01",
+   "from": "customer1@customer.test",
+   "subject": "Cảm ơn bộ phận hỗ trợ",
+   "expect": {
+    "task_type": 1,
+    "no_actions": true
+   }
+  },
+  {
+   "id": "M02",
+   "from": "partner1@partner.test",
+   "subject": "Thông báo: bảo trì hệ thống phía đối tác",
+   "expect": {
+    "task_type": 1,
+    "no_actions": true
+   }
+  },
+  {
+   "id": "M03",
+   "from": "bob@corp.test",
+   "subject": "FYI: họp nhóm dời sang thứ Sáu",
+   "expect_skipped": true
+  },
+  {
+   "id": "M04",
+   "from": "customer1@customer.test",
+   "subject": "Giờ làm việc của bộ phận hỗ trợ?",
+   "expect": {
+    "task_type": 2,
+    "reply_to": "customer1@customer.test",
+    "reply_contains": [
+     "08:00",
+     "17:00"
+    ],
+    "forbidden": [
+     "create_ticket"
+    ]
+   }
+  },
+  {
+   "id": "M05",
+   "from": "customer1@customer.test",
+   "subject": "Quên mật khẩu cổng khách hàng",
+   "expect": {
+    "task_type": 2,
+    "reply_to": "customer1@customer.test",
+    "reply_contains": [
+     "portal.corp.test/reset",
+     "15 phút"
+    ],
+    "forbidden": [
+     "create_ticket"
+    ]
+   }
+  },
+  {
+   "id": "M06",
+   "from": "partner1@partner.test",
+   "subject": "Thời gian hoàn tiền",
+   "expect": {
+    "task_type": 2,
+    "reply_to": "partner1@partner.test",
+    "reply_contains": [
+     "7 ngày làm việc"
+    ],
+    "forbidden": [
+     "create_ticket"
+    ]
+   }
+  },
+  {
+   "id": "M07",
+   "from": "customer1@customer.test",
+   "subject": "Không đăng nhập được từ sáng nay",
+   "expect": {
+    "task_type": 3,
+    "tickets_created": [
+     {
+      "requester": "customer1@customer.test",
+      "priority": "normal",
+      "subject_contains": [
+       "đăng nhập"
+      ]
+     }
+    ],
+    "reply_to": "customer1@customer.test",
+    "reply_contains": [
+     "TKT-"
+    ],
+    "forward_to": "alice@corp.test"
+   }
+  },
+  {
+   "id": "M08",
+   "from": "partner1@partner.test",
+   "subject": "API trả về lỗi 500 liên tục",
+   "expect": {
+    "task_type": 3,
+    "tickets_created": [
+     {
+      "requester": "partner1@partner.test",
+      "priority": "high",
+      "subject_contains": [
+       "API"
+      ]
+     }
+    ],
+    "reply_to": "partner1@partner.test",
+    "reply_contains": [
+     "TKT-"
+    ],
+    "forward_to": "bob@corp.test"
+   }
+  },
+  {
+   "id": "M09",
+   "from": "customer1@customer.test",
+   "subject": "Yêu cầu xuất hóa đơn tháng 9",
+   "expect": {
+    "task_type": 3,
+    "tickets_created": [
+     {
+      "requester": "customer1@customer.test",
+      "priority": "low",
+      "subject_contains": [
+       "hóa đơn"
+      ]
+     }
+    ],
+    "reply_to": "customer1@customer.test",
+    "reply_contains": [
+     "TKT-"
+    ],
+    "forward_to": "alice@corp.test"
+   }
+  },
+  {
+   "id": "M10",
+   "from": "customer1@customer.test",
+   "subject": "Về TKT-0001: đã đăng nhập được",
+   "expect": {
+    "task_type": 4,
+    "ticket_updates": [
+     {
+      "id": "TKT-0001",
+      "status": "resolved"
+     }
+    ],
+    "forbidden": [
+     "create_ticket"
+    ]
+   }
+  },
+  {
+   "id": "M11",
+   "from": "partner1@partner.test",
+   "subject": "Về TKT-0002: sẽ gửi log vào thứ Hai",
+   "expect": {
+    "task_type": 4,
+    "ticket_updates": [
+     {
+      "id": "TKT-0002",
+      "status": "pending"
+     }
+    ],
+    "forbidden": [
+     "create_ticket"
+    ]
+   }
+  },
+  {
+   "id": "M12",
+   "from": "customer1@customer.test",
+   "subject": "Về TKT-0003: lỗi vẫn còn, cần xử lý gấp",
+   "expect": {
+    "task_type": 4,
+    "ticket_updates": [
+     {
+      "id": "TKT-0003",
+      "status": "open",
+      "priority": "high"
+     }
+    ],
+    "forward_to": "alice@corp.test",
+    "forbidden": [
+     "create_ticket"
+    ]
+   }
+  },
+  {
+   "id": "M13",
+   "from": "partner1@partner.test",
+   "subject": "Gia hạn hợp đồng hợp tác",
+   "expect": {
+    "task_type": 5,
+    "forward_to": "bob@corp.test",
+    "forbidden": [
+     "create_ticket"
+    ]
+   }
+  },
+  {
+   "id": "M14",
+   "from": "customer1@customer.test",
+   "subject": "Góp ý về chất lượng dịch vụ",
+   "expect": {
+    "task_type": 5,
+    "forward_to": "alice@corp.test",
+    "forbidden": [
+     "create_ticket"
+    ]
+   }
+  },
+  {
+   "id": "M15",
+   "from": "partner1@partner.test",
+   "subject": "Hỏi về tích hợp webhook",
+   "expect": {
+    "task_type": 5,
+    "forward_to": "bob@corp.test",
+    "forbidden": [
+     "create_ticket"
+    ]
+   }
+  },
+  {
+   "id": "M16",
+   "from": "partner1@partner.test",
+   "subject": "Bản tin đối tác tháng 10",
+   "expect": {
+    "task_type": 6,
+    "moved_to": "Archive",
+    "forbidden": [
+     "reply_message",
+     "create_ticket",
+     "forward_message"
+    ]
+   }
+  },
+  {
+   "id": "M17",
+   "from": "bob@corp.test",
+   "subject": "[Tự động] Báo cáo hệ thống hằng ngày",
+   "expect_skipped": true
+  },
+  {
+   "id": "M18",
+   "from": "customer1@customer.test",
+   "subject": "Mời tham dự webinar tháng 10",
+   "expect": {
+    "task_type": 6,
+    "moved_to": "Archive",
+    "forbidden": [
+     "reply_message",
+     "create_ticket",
+     "forward_message"
+    ]
+   }
+  },
+  {
+   "id": "M19",
+   "from": "alice@corp.test",
+   "subject": "Ghi lại: thỏa thuận gia hạn hỗ trợ",
+   "expect_skipped": true
+  },
+  {
+   "id": "M20",
+   "from": "bob@corp.test",
+   "subject": "Ghi lại: lịch bảo trì staging",
+   "expect_skipped": true
+  },
+  {
+   "id": "M21",
+   "from": "alice@corp.test",
+   "subject": "Ghi lại: quy ước ưu tiên ticket của partner",
+   "expect_skipped": true
+  },
+  {
+   "id": "M22",
+   "from": "customer1@customer.test",
+   "subject": "Không nhận được email xác thực",
+   "expect": {
+    "task_type": 8,
+    "tickets_created": [
+     {
+      "requester": "customer1@customer.test",
+      "priority": "normal",
+      "subject_contains": [
+       "xác thực"
+      ]
+     }
+    ],
+    "reply_to": "customer1@customer.test",
+    "reply_contains": [
+     "TKT-",
+     "thư rác"
+    ],
+    "forward_to": "alice@corp.test"
+   }
+  },
+  {
+   "id": "M23",
+   "from": "partner1@partner.test",
+   "subject": "API bị giới hạn 429, cần tăng quota",
+   "expect": {
+    "task_type": 8,
+    "tickets_created": [
+     {
+      "requester": "partner1@partner.test",
+      "priority": "normal",
+      "subject_contains": [
+       "429"
+      ]
+     }
+    ],
+    "reply_to": "partner1@partner.test",
+    "reply_contains": [
+     "TKT-"
+    ],
+    "forward_to": "bob@corp.test"
+   }
+  },
+  {
+   "id": "M24",
+   "from": "customer1@customer.test",
+   "subject": "Tài khoản bị khóa",
+   "expect": {
+    "task_type": 8,
+    "tickets_created": [
+     {
+      "requester": "customer1@customer.test",
+      "priority": "normal",
+      "subject_contains": [
+       "khóa"
+      ]
+     }
+    ],
+    "reply_to": "customer1@customer.test",
+    "reply_contains": [
+     "TKT-",
+     "30 phút",
+     "tên đăng nhập"
+    ],
+    "forward_to": "alice@corp.test"
+   }
+  }
+ ]
+}
